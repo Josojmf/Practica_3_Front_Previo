@@ -3,13 +3,13 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $Cars_index from "./routes/Cars/index.tsx";
-import * as $Search from "./routes/Search.tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $Car from "./islands/Car.tsx";
+import * as $Form from "./islands/Form.tsx";
 import * as $NavMenu from "./islands/NavMenu.tsx";
 import * as $_layout_1 from "./islands/_layout.tsx";
 import { type Manifest } from "$fresh/server.ts";
@@ -17,7 +17,6 @@ import { type Manifest } from "$fresh/server.ts";
 const manifest = {
   routes: {
     "./routes/Cars/index.tsx": $Cars_index,
-    "./routes/Search.tsx": $Search,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
@@ -26,6 +25,7 @@ const manifest = {
   },
   islands: {
     "./islands/Car.tsx": $Car,
+    "./islands/Form.tsx": $Form,
     "./islands/NavMenu.tsx": $NavMenu,
     "./islands/_layout.tsx": $_layout_1,
   },
