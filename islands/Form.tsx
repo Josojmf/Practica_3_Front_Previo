@@ -10,12 +10,10 @@ type Error ={
 export const Form :FunctionComponent = ()=>{
     const [error,setError] = useState<Error>({error:false,status:200 ,message:''});
     const checkString = (str:string)=>{
-        if(str.length<3){
-            setError({error:true,status:400,message:"El nombre debe tener al menos 3 caracteres"});
+        if(str.length<1){
+            setError({error:true,status:400,message:"El nombre debe tener al menos 1 caracter"});
         }else if(str.length>20){
             setError({error:true,status:400,message:"El nombre debe tener menos de 20 caracteres"});
-        } else if (str.match(/[a-zA-Z]/g)){
-            setError({error:true,status:400,message:"El nombre no puede tener caracteres especiales"});
         }else{
             setError({error:false,status:200,message:""});
             return true;
@@ -26,7 +24,7 @@ export const Form :FunctionComponent = ()=>{
 
     return(
     <div className="Search">
-        <form action="/Cars" method="get" className="SearchCar">
+        <form action="/Cars" method="get" className="SearchCar" onBlur={(e)=>checkString((e.currentTarget.value))}>
           <input
             type="text"
             name="model"
@@ -51,7 +49,7 @@ export const Form :FunctionComponent = ()=>{
             {error.status===400 && <p>El nombre no puede tener caracteres especiales</p>}
             {error.status===200 && <p></p>}
         </div>
-    );
+
     </div>
     )
 }
