@@ -9,6 +9,9 @@ export const handler: Handlers = {
 
     const Model = url.searchParams.get("model");
     const Make = url.searchParams.get("make");
+    if (!Model && !Make) {
+      return ctx.render([]);
+    }
     const headers = {
       "X-Api-Key": "UJhYVUxrSKqPZP7V8WD9PA==sYM7jOOqw36WSoOW",
     };

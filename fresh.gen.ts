@@ -6,10 +6,12 @@ import * as $Cars_index from "./routes/Cars/index.tsx";
 import * as $Search from "./routes/Search.tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $api_joke from "./routes/api/joke.ts";
+import * as $_layout from "./routes/_layout.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $Car from "./islands/Car.tsx";
+import * as $NavMenu from "./islands/NavMenu.tsx";
+import * as $_layout_1 from "./islands/_layout.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -18,12 +20,14 @@ const manifest = {
     "./routes/Search.tsx": $Search,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/api/joke.ts": $api_joke,
+    "./routes/_layout.tsx": $_layout,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
   },
   islands: {
     "./islands/Car.tsx": $Car,
+    "./islands/NavMenu.tsx": $NavMenu,
+    "./islands/_layout.tsx": $_layout_1,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
