@@ -7,7 +7,7 @@ type Error = {
   message: string;
 };
 
-export const Form: FunctionComponent = () => {
+export const AddForm: FunctionComponent = () => {
   const [error, setError] = useState<Error>({
     error: false,
     status: 200,
@@ -33,9 +33,9 @@ export const Form: FunctionComponent = () => {
   };
 
   return (
-    <div className="Search">
+    <div className="Add">
       <form
-        action="/Cars"
+        action="/AddCar"
         method="get"
         className="SearchCar"
         onBlur={(e) => checkString(e.currentTarget.value)}
@@ -55,7 +55,7 @@ export const Form: FunctionComponent = () => {
           onBlur={(e) => checkString(e.currentTarget.value)}
         />
         <button disabled={error.error} type="submit" className="SearchButton">
-          Search
+          Add
         </button>
       </form>
       <div className="Error">

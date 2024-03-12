@@ -3,8 +3,11 @@ import { FunctionComponent } from "https://esm.sh/v128/preact@10.19.2/src/index.
 import { FreshContext, Handlers, type PageProps } from "$fresh/server.ts";
 import { Cartype } from "../../types.tsx";
 import CarComp from "../../islands/Car.tsx";
+import { Form } from "../../islands/Form.tsx";
 export const handler: Handlers = {
+
   GET: async (req: Request, ctx: FreshContext) => {
+    try {
     const url = new URL(req.url);
 
     const Model = url.searchParams.get("model");
@@ -27,28 +30,17 @@ export const handler: Handlers = {
       data = response.data;
     }
     return ctx.render(data);
+  } catch (error) {
+    return ctx.render([]);
+  }
   },
-};
+}
+
 const Page = (props: PageProps) => {
   return (
+    
     <div className="CarPage">
-      <div className="Search">
-        <form action="/Cars" method="get" className="SearchCar">
-          <input
-            type="text"
-            name="model"
-            placeholder="Model"
-            className="SearchBar"
-          />
-          <input
-            type="text"
-            name="make"
-            placeholder="Make"
-            className="SearchBar"
-          />
-          <button type="submit" className="SearchButton">Search</button>
-        </form>
-        </div>
+      <Form />
         {props.data.map((car: Cartype) => <CarComp car={car} />)}
     </div>
   );
